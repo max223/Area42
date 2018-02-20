@@ -24,6 +24,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
                     .antMatchers("/area/**").authenticated()
                     .antMatchers("/secure/**")
                     .authenticated()
+                    .antMatchers("/webhook/**").permitAll()
                     .and()
                     .formLogin()
                     .loginPage("/login")
