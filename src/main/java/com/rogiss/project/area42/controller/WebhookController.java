@@ -20,6 +20,6 @@ public class WebhookController {
                              @RequestParam("hub.verify_token") final String verifyToken,
                              @RequestParam("hub.challenge") final String challenge){
 
-        return ResponseEntity.ok().body(verifyToken);
+        return ResponseEntity.ok().body(challenge);
     }
 }
