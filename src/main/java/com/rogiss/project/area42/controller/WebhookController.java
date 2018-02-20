@@ -35,6 +35,16 @@ public class WebhookController {
     @ResponseBody
     public ResponseEntity<String> facebookUpdate(@RequestBody final String field, @RequestBody final FacebookObject value){
 
+
+
+        log.debug("=========================");
+        log.debug("=========================");
+        log.debug("field =  ");
+        log.debug(field);
+        log.debug("Value = ");
+        log.debug(String.valueOf(value));
+        log.debug("=========================");
+        log.debug("=========================");
         FacebookUpdate facebookUpdate;
 
         switch (field) {
