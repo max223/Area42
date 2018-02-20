@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Notes</title>
+
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>ActionReaction</h1>
+
+    <p>
+        <a href="/area/edit" th:href="@{/area/edit}">Create</a>
+    </p>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Action</th>
+            <th>Reaction</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="area : ${arealist}">
+            <td th:text="${area.id}">Id</td>
+            <td th:text="${area.Action}">Action</td>
+            <td th:text="${area.Reaction}">Reaction</td>
+
+            <td>
+                <a href="/area/edit/{area.id}" th:href="@{/area/edit/__${area.id}__}">Edit</a>
+                <a href="/area/delete/{id}" th:href="@{/area/delete/__${area.id}__}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

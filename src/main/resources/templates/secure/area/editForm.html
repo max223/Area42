@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Notes</title>
+
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+
+    <h1>Create a New Action Reaction</h1>
+
+    <form class="form-group" action="/area/edit" th:action="@{/area/edit}" method="post">
+        <input th:type="hidden" name="id" th:field="${area.id}" />
+        <input th:type="hidden" name="id" th:field="${area.userId}" />
+        <div class="form-group">
+            <label for="action">Action</label>
+            <input type="text" class="form-control" id="action" th:field="${area.Action}" />
+            <label for="reaction">Rection</label>
+            <input type="text" class="form-control" id="reaction" th:field="${area.Reaction}" />
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a href="#" th:href="@{/}" class="btn btn-danger" role="button">Cancel</a>
+    </form>
+
+</div>
+
+</body>
+</html>
