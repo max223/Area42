@@ -10,7 +10,7 @@ public class DashboardController {
 
     @RequestMapping("/")
     public String dashboardView() {
-        return "/secure/dashboard";
+        return "secure/dashboard";
     }
 
 }

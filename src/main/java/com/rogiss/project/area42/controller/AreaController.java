@@ -19,7 +19,7 @@ public class AreaController {
     @RequestMapping("/show/{id}")
     public String show(Model model, @PathVariable Long id) {
         model.addAttribute("area", actionReactionService.findOne(id));
-        return "/secure/area/show";
+        return "secure/area/show";
     }
 
     @RequestMapping(value = {"/edit/{id}","/edit"}, method = RequestMethod.GET)
@@ -28,7 +28,7 @@ public class AreaController {
             model.addAttribute("area",actionReactionService.findOne(id));
         else
             model.addAttribute("area", new ActionReaction());
-        return "/secure/area/editForm";
+        return "secure/area/editForm";
     }
 
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
@@ -41,13 +41,13 @@ public class AreaController {
     @RequestMapping("/list")
     public String list(Model model, Integer userId){
         model.addAttribute("arealist", actionReactionService.findByUserId(userId));
-        return "/secure/area/list";
+        return "secure/area/list";
     }
 
     @RequestMapping(value = "/delete/{id}")
     public String areaDelete(Model model, @PathVariable Long id, Integer userId){
         actionReactionService.deleteActionReaction(id);
         model.addAttribute("arealist", actionReactionService.findByUserId(userId));
-        return "/secure/area/list";
+        return "secure/area/list";
     }
 }
