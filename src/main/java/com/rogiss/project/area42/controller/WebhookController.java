@@ -9,14 +9,15 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import javax.xml.ws.Response;
 
 @RestController
 @RequestMapping("/webhook")
 public class WebhookController {
 
-
+    private final Logger log = LoggerFactory.getLogger(this.getClass());
 /*
     @RequestMapping(value = "/facebook", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
@@ -47,14 +48,14 @@ public class WebhookController {
                 return ResponseEntity.unprocessableEntity().body("Not compatible field");
         }
 
-        System.out.println("=========================");
-        System.out.println("=========================");
-        System.out.println("field =  ");
-        System.out.println(field);
-        System.out.println("Value = ");
-        System.out.println(value);
-        System.out.println("=========================");
-        System.out.println("=========================");
+        log.debug("=========================");
+        log.debug("=========================");
+        log.debug("field =  ");
+        log.debug(field);
+        log.debug("Value = ");
+        log.debug(String.valueOf(value));
+        log.debug("=========================");
+        log.debug("=========================");
 
         facebookUpdate.setField(field);
         facebookUpdate.setValue(value);
