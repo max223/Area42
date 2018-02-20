@@ -32,11 +32,10 @@ public class AreaController {
     }
 
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
-    public String edit(Model model, ActionReaction actionReaction){
+    public String edit(Model model, ActionReaction actionReaction, Integer userId){
         actionReactionService.saveActionReaction(actionReaction);
-        //model.addAttribute("arealist", actionReactionService.findByUserId(userId));
-      //  return "secure/area/list";
-        return "/secure/dashboard";
+        model.addAttribute("arealist", actionReactionService.findByUserId(userId));
+        return "secure/area/list";
     }
     @RequestMapping("/list")
     public String list(Model model, Integer userId){
