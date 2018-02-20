@@ -37,14 +37,14 @@ public class WebhookController {
 
 
 
-        log.debug("=========================");
-        log.debug("=========================");
-        log.debug("field =  ");
-        log.debug(field);
-        log.debug("Value = ");
-        log.debug(String.valueOf(value));
-        log.debug("=========================");
-        log.debug("=========================");
+        System.out.println("=========================");
+        System.out.println("=========================");
+        System.out.println("field =  ");
+        System.out.println(field);
+        System.out.println("Value = ");
+        System.out.println(String.valueOf(value));
+        System.out.println("=========================");
+        System.out.println("=========================");
         FacebookUpdate facebookUpdate;
 
         switch (field) {

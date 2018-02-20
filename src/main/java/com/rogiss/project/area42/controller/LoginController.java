@@ -7,6 +7,8 @@ import com.rogiss.project.area42.social.provider.FacebookProvider;
 import com.rogiss.project.area42.social.provider.LinkedInProvider;
 import com.rogiss.project.area42.social.provider.TwitterProvider;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -23,6 +25,10 @@ import javax.validation.Valid;
 
 @Controller
 public class LoginController {
+
+    private final Logger log = LoggerFactory.getLogger(this.getClass());
+
+
     @Autowired
     FacebookProvider facebookProvider;
 
@@ -87,6 +93,12 @@ public class LoginController {
     }
     @RequestMapping(value = { "/","/login" })
     public String login() {
+        log.debug("=========================");
+        System.out.println("cacaaaaaaaaaaaaaaaaaaaaaa");
+        System.out.println("cacaaaaaaaaaaaaaaaaaaaaaa");
+        System.err.println("putain de merde tu va marcher debug de merde");
+        System.err.println("putain de merde tu va marcher debug de merde");
+        log.debug("=========================");
         return "login";
     }
 }
