@@ -13,7 +13,7 @@ public class WebhookController {
 
 
 
-    @RequestMapping(value = "/facebook", method = RequestMethod.POST)
+    @RequestMapping(value = "/facebook", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public ResponseEntity<String> facebook(@RequestParam("hub.mode") final String mode,
