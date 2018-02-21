@@ -1,9 +1,9 @@
 package com.rogiss.project.area42.model.event.object;
 
 
-public class FacebookPictureObject implements FacebookObject {
+public class FacebookPictureObject implements IFacebookUpdateObject {
 
-    private enum verb {add, block, edit, edited, delete, follow, hide, mute, remove, unblock, unhide, update}
+    public enum verb {add, block, edit, edited, delete, follow, hide, mute, remove, unblock, unhide, update}
 
     private verb verb;
 

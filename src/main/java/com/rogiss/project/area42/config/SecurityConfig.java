@@ -19,6 +19,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
         @Override
         protected void configure(HttpSecurity http) throws Exception {
+            http.csrf().disable();
+
             http.authorizeRequests().antMatchers("/css/**", "/connect/**").permitAll()
                     .antMatchers("/dashboard/**").authenticated()
                     .antMatchers("/area/**").authenticated()

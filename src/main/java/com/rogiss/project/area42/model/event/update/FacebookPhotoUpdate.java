@@ -1,13 +1,9 @@
 package com.rogiss.project.area42.model.event.update;
 
-import com.rogiss.project.area42.model.event.object.FacebookObject;
-
-import java.lang.reflect.Field;
+import com.rogiss.project.area42.model.event.object.IFacebookUpdateObject;
 
 
 public class FacebookPhotoUpdate extends FacebookUpdate {
-
-
 
     public FacebookPhotoUpdate() {
     }
@@ -23,12 +19,12 @@ public class FacebookPhotoUpdate extends FacebookUpdate {
     }
 
     @Override
-    public FacebookObject getValue() {
+    public IFacebookUpdateObject getValue() {
         return value;
     }
 
     @Override
-    public void setValue(FacebookObject value) {
+    public void setValue(IFacebookUpdateObject value) {
         this.value = value;
     }
 

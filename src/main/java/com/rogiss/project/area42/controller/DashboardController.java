@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/dashboard")
 public class DashboardController {
 
-    @RequestMapping("/")
+    @RequestMapping({"/", ""})
     public String dashboardView() {
         return "secure/dashboard";
     }

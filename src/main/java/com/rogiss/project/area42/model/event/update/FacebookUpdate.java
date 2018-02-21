@@ -1,13 +1,12 @@
 package com.rogiss.project.area42.model.event.update;
 
-import com.rogiss.project.area42.model.event.object.FacebookObject;
-import com.rogiss.project.area42.model.event.update.IUpdate;
+import com.rogiss.project.area42.model.event.object.IFacebookUpdateObject;
 
 public abstract class FacebookUpdate implements IUpdate {
 
      protected String field;
 
-     protected FacebookObject value;
+     protected IFacebookUpdateObject value;
 
     protected enum verb {add, block, edit, edited, delete, follow, hide, mute, remove, unblock, unhide, update}
 
@@ -18,9 +17,9 @@ public abstract class FacebookUpdate implements IUpdate {
 
     public abstract void setField(String field);
 
-    public abstract FacebookObject getValue();
+    public abstract IFacebookUpdateObject getValue();
 
-    public abstract void setValue(FacebookObject value);
+    public abstract void setValue(IFacebookUpdateObject value);
 
     public abstract FacebookUpdate.verb getVerb();
 
