@@ -159,10 +159,6 @@
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
         </dependency>
-        <dependency>
-            <groupId>org.brunocvcunha.instagram4j</groupId>
-            <artifactId>instagram4j</artifactId>
-        </dependency>
         <!-- https://mvnrepository.com/artifact/org.scribe/scribe -->
         <dependency>
             <groupId>org.scribe</groupId>
