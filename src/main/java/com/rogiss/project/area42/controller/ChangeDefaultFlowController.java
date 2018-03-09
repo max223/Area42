@@ -6,6 +6,7 @@ import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.connect.web.ConnectController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.view.RedirectView;
 
 //Override spring social flow
 @Controller
@@ -22,5 +23,13 @@ public class ChangeDefaultFlowController extends ConnectController {
         return "redirect:/"+providerId;
         //return "redirect:/user";
     }
+
+
+
+//
+//    @RequestMapping(value = "/twitterConnect")
+//    public RedirectView twitterCo(){
+//        return  new RedirectView("/dashboard");
+//    }
 
 }

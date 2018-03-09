@@ -15,27 +15,26 @@ public class ActionReaction {
     @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name="area_id")
     private Long id;
-    @Column(name="action")
-    private String Action;
-    @Column(name="reaction")
-    private String Reaction;
+    @Column(name="action_id")
+    private Long ActionId;
+    @Column(name="reaction_id")
+    private Long ReactionId;
     @Column (name="user_id")
-    private Integer userId;
+    private Long userId;
 
     public ActionReaction() {
     }
 
-    public ActionReaction(String action, String reaction, Integer userId) {
-        Action = action;
-        Reaction = reaction;
+    public ActionReaction(Long actionId, Long reactionId, Long userId) {
+        ActionId = actionId;
+        ReactionId = reactionId;
         this.userId = userId;
     }
 
-    public ActionReaction(String action, String reaction) {
-        Action = action;
-        Reaction = reaction;
+    public ActionReaction(Long actionId, Long reactionId) {
+        ActionId = actionId;
+        ReactionId = reactionId;
     }
-
 
     public Long getId() {
         return id;
@@ -45,27 +44,28 @@ public class ActionReaction {
         this.id = id;
     }
 
-    public String getAction() {
-        return Action;
-    }
-
-    public void setAction(String action) {
-        Action = action;
-    }
-
-    public String getReaction() {
-        return Reaction;
-    }
-
-    public void setReaction(String reaction) {
-        Reaction = reaction;
-    }
-
-    public Integer getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
+
+    public Long getActionId() {
+        return ActionId;
+    }
+
+    public void setActionId(Long actionId) {
+        ActionId = actionId;
+    }
+
+    public Long getReactionId() {
+        return ReactionId;
+    }
+
+    public void setReactionId(Long reactionId) {
+        ReactionId = reactionId;
+    }
+
 }

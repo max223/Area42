@@ -1,4 +1,4 @@
-package com.rogiss.project.area42.service;
+package com.rogiss.project.area42.service.ActionsReactions;
 
 import com.rogiss.project.area42.model.ActionReaction;
 import org.springframework.stereotype.Service;
@@ -10,7 +10,7 @@ public interface ActionReactionService {
 
     List<ActionReaction> findAll();
 
-    List<ActionReaction> findByUserId(Integer userId);
+    List<ActionReaction> findByUserId(Long userId);
 
     ActionReaction findOne(Long id);
 

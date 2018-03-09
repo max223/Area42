@@ -38,4 +38,32 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     }
 
+    public Long getIdByEmail(String email) {
+        UserInfos userInfos = userRepository.findByEmail(email);
+        return userInfos.getId();
+    }
+
+    public Long getIdByFacebookId(Long FbId) {
+        UserInfos usr = userRepository.findByUserIdFacebook(FbId);
+        UserInfos usr2;
+        return  usr.getId();
+    }
+
+    public UserInfos getUserByFacebookId(Long FbId){
+        return  userRepository.findByUserIdFacebook(FbId);
+    }
+
+
+    public UserInfos getUserByTwitterId(Long TwtId){
+        return  userRepository.findByUserIdTwitter(TwtId);
+    }
+
+
+    public UserInfos getUserByLinkedin(Long LkId){
+        return  userRepository.findByUserIdLinkedin(LkId);
+    }
+
+    public UserInfos getUserByDropboxId(String id) {
+        return  userRepository.findByUserIdDropbox(id);
+    }
 }

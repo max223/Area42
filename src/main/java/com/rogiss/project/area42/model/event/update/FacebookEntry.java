@@ -1,9 +1,7 @@
 package com.rogiss.project.area42.model.event.update;
 
-import org.springframework.boot.configurationprocessor.json.JSONObject;
-import org.springframework.context.annotation.Bean;
+import com.rogiss.project.area42.model.event.object.FacebookChangeObject;
 
-import java.lang.reflect.Array;
 import java.util.List;
 
 
@@ -11,17 +9,18 @@ public class FacebookEntry {
     private String id;
     private Integer time;
     private String uid;
-    private List<String> changed_fields;
-    //private JSONObject changes;
+    private List<FacebookChangeObject> changes;
+
 
     public FacebookEntry() {
     }
 
-    public FacebookEntry(String id, Integer time, String uid, List<String> changed_fields) {
-        this.id = id;
-        this.time = time;
-        this.uid = uid;
-        this.changed_fields = changed_fields;
+    public List<FacebookChangeObject> getChanges() {
+        return changes;
+    }
+
+    public void setChanges(List<FacebookChangeObject> changes) {
+        this.changes = changes;
     }
 
     public String getUid() {
@@ -30,14 +29,6 @@ public class FacebookEntry {
 
     public void setUid(String uid) {
         this.uid = uid;
-    }
-
-    public List<String> getChanged_fields() {
-        return changed_fields;
-    }
-
-    public void setChanged_fields(List<String> changed_fields) {
-        this.changed_fields = changed_fields;
     }
 
     public String getId() {
@@ -55,12 +46,4 @@ public class FacebookEntry {
     public void setTime(Integer time) {
         this.time = time;
     }
-/*
-    public JSONObject getFacebookUpdate() {
-        return changes;
-    }
-
-    public void setFacebookUpdate(JSONObject facebookUpdate) {
-        this.changes = facebookUpdate;
-    }*/
 }

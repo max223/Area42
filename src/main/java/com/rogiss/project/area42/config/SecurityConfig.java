@@ -9,8 +9,11 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.csrf.CsrfFilter;
+import org.springframework.security.web.util.matcher.AndRequestMatcher;
+import org.springframework.security.web.util.matcher.RegexRequestMatcher;
 
-    //@formatter:off
+//@formatter:off
     @EnableWebSecurity
     public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -19,14 +22,14 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
         @Override
         protected void configure(HttpSecurity http) throws Exception {
-            http.csrf().disable();
-
             http.authorizeRequests().antMatchers("/css/**", "/connect/**").permitAll()
                     .antMatchers("/dashboard/**").authenticated()
                     .antMatchers("/area/**").authenticated()
                     .antMatchers("/secure/**")
                     .authenticated()
                     .antMatchers("/webhook/**").permitAll()
+                    .and()
+                    .csrf().ignoringAntMatchers("/webhook/**")
                     .and()
                     .formLogin()
                     .loginPage("/login")
@@ -38,7 +41,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
                     .permitAll();
         }
 
-        @Bean
+            @Bean
         public BCryptPasswordEncoder bCryptPasswordEncoder() {
             return new BCryptPasswordEncoder();
         }

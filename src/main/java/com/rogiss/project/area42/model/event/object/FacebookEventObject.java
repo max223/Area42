@@ -1,19 +1,56 @@
 package com.rogiss.project.area42.model.event.object;
 
 
-public class FacebookEventObject implements IFacebookUpdateObject {
+public class FacebookEventObject extends IFacebookValueObject {
+
+    public enum verb {
+        accept("accept"), create("create"), decline("decline"), maybe("maybe"), update("update");
+
+        private String name;
+        private verb(String s) {
+            name = s;
+        }
+        public boolean equalsName(String otherName) {
+            return name.equals(otherName);
+        }
+
+        public String toString() {
+            return this.name;
+        }
+    }
+    private verb verb;
 
     private String event_id;
 
-    public enum  verb {
-        accept, create, decline, maybe, update}
+    private String userId;
 
-    private verb verb;
 
-    public FacebookEventObject(String event_id, FacebookEventObject.verb verb) {
-        this.event_id = event_id;
-        this.verb = verb;
+    public FacebookEventObject(Object source) {
+        super(source);
+
     }
+
+
+    @Override
+    public String getUserId() {
+        return userId;
+    }
+
+    @Override
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    @Override
+    public String getObject_id() {
+        return this.getEvent_id();
+    }
+
+    @Override
+    public void setObject_id(String object_id) {
+        this.setEvent_id(object_id);
+    }
+
 
 
     public String getEvent_id() {
@@ -28,7 +65,8 @@ public class FacebookEventObject implements IFacebookUpdateObject {
         return verb;
     }
 
-    public void setVerb(FacebookEventObject.verb verb) {
-        this.verb = verb;
+    @Override
+    public void setVerb(Enum verb) {
+        this.verb = (verb)verb;
     }
 }

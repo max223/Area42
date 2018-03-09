@@ -8,7 +8,6 @@ public class FacebookRequest {
 
     private String object;
     private List<FacebookEntry> entry;
-//    private FacebookEntry entry;
 
     public FacebookRequest(String object, List<FacebookEntry> entry) {
         this.object = object;

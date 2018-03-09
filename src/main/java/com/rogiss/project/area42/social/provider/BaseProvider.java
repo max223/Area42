@@ -59,7 +59,7 @@ public class BaseProvider {
         return twitter;
     }
 
-    public void setGoogle(Twitter twitter) {
+    public void setTwitter(Twitter twitter) {
         this.twitter = twitter;
     }
 

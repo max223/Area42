@@ -54,23 +54,32 @@
     </form>
 
     <form action="/connect/twitter" method="POST" style="display: inline">
-        <!--<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />-->
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
         <input type="hidden" name="scope" value="profile email" />
-        <button type="submit" class="btn btn-danger">
-            Google <span class="fa fa-twitter"></span>
+        <button type="submit" class="btn btn-primary">
+            Twitter <span class="fa fa-twitter"></span>
+        </button>
+    </form>
+
+    <form action="/connect/dropbox/login-dropbox" method="GET" style="display: inline">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+        <input type="hidden" name="scope" value="profile email" />
+        <button type="submit" class="btn btn-primary">
+            Dropbox <span class="fa fa-dropbox"></span>
         </button>
     </form>
 
     <form action="/connect/facebook" method="POST" style="display: inline">
-        <!--<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />-->
-        <input type="hidden" name="scope" value="public_profile,email" />
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+        <input type="hidden" name="scope" value="public_profile,email,user_events,user_photos,publish_actions" />
+        <!--<input type="hidden" name="perms" value="public_profile,email,user_events,user_photos" />-->
         <button type="submit" class="btn btn-primary">
             Facebook <span class="fa fa-facebook"></span>
         </button>
     </form>
 
     <form action="/connect/linkedin" method="POST" style="display: inline">
-        <!--<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />-->
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
         <input type="hidden" name="scope"
                value="r_basicprofile,r_emailaddress" />
         <button type="submit" class="btn btn-primary">

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="dropboxServiceConfig" class="com.rogiss.project.area42.OAuth.OAuthServiceConfig">
+        <constructor-arg value="zf9qe9fxakh07lp" type="java.lang.String"/>
+        <constructor-arg value="8m1sxep36lnk6or" type="java.lang.String"/>
+        <constructor-arg value="https://www.example.com/oauth/dropbox" type="java.lang.String"/>
+        <constructor-arg value="com.rogiss.project.area42.OAuth.DropBoxApi20" type="java.lang.Class"/>
+    </bean>
+
+    <bean id="dropboxServiceProvider" class="com.rogiss.project.area42.OAuth.OAuthServiceProvider">
+        <constructor-arg name="config" ref="dropboxServiceConfig"/>
+    </bean>
+</beans>

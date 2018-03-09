@@ -1,7 +1,7 @@
-package com.rogiss.project.area42.service;
+package com.rogiss.project.area42.service.ActionsReactions;
 
 import com.rogiss.project.area42.model.ActionReaction;
-import com.rogiss.project.area42.repository.ActionReactionRepository;
+import com.rogiss.project.area42.repository.ActionsReactions.ActionReactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +19,7 @@ public class ActionReactionServiceImpl implements ActionReactionService {
     }
 
     @Override
-    public List<ActionReaction> findByUserId(Integer userId) {
+    public List<ActionReaction> findByUserId(Long userId) {
         return actionReactionRepository.findByUserId(userId);
     }
 

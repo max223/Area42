@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.social.facebook.api.Facebook;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
@@ -25,8 +27,6 @@ import javax.validation.Valid;
 
 @Controller
 public class LoginController {
-
-    private final Logger log = LoggerFactory.getLogger(this.getClass());
 
 
     @Autowired
@@ -65,7 +65,9 @@ public class LoginController {
         return "secure/user";
     }
 
-    /** If we can't find a user/email combination */
+    /**
+     * If we can't find a user/email combination
+     */
     @RequestMapping("/login-error")
     public String loginError(Model model) {
         model.addAttribute("loginError", true);
@@ -73,17 +75,18 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/facebook", method = RequestMethod.GET)
-    public String loginToFacebook(Model model) {
+    public String loginToFacebook(Model model) throws IllegalAccessException {
+
         return facebookProvider.getFacebookUserData(model, new UserInfos());
     }
 
     @RequestMapping(value = "/twitter", method = RequestMethod.GET)
-    public String loginToGoogle(Model model) {
-        return twitterProvider.getTwitterUserData(model, new UserInfos());
+    public String loginToTwitter(Model model) throws IllegalAccessException {
+            return twitterProvider.getTwitterUserData(model, new UserInfos());
     }
 
     @RequestMapping(value = "/linkedin", method = RequestMethod.GET)
-    public String helloFacebook(Model model) {
+    public String helloLinkedIn(Model model) throws IllegalAccessException {
         return linkedInProvider.getLinkedInUserData(model, new UserInfos());
     }
 
@@ -91,14 +94,10 @@ public class LoginController {
     public String showRegistration(UserInfos userInfos) {
         return "registration";
     }
-    @RequestMapping(value = { "/","/login" })
+
+    @RequestMapping(value = {"/", "/login"})
     public String login() {
-        log.debug("=========================");
-        System.out.println("cacaaaaaaaaaaaaaaaaaaaaaa");
-        System.out.println("cacaaaaaaaaaaaaaaaaaaaaaa");
-        System.err.println("putain de merde tu va marcher debug de merde");
-        System.err.println("putain de merde tu va marcher debug de merde");
-        log.debug("=========================");
         return "login";
     }
+
 }
