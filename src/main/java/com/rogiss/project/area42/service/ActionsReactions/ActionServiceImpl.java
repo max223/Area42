@@ -34,4 +34,15 @@ public class ActionServiceImpl implements ActionService {
         actionRepository.delete(id);
     }
 
+    @Override
+    public Action updateAction(Action old_action) {
+
+        Action toUpdate = actionRepository.findActionById(old_action.getId());
+        toUpdate.setCompatibleReaction(old_action.getCompatibleReaction());
+        toUpdate.setDescription(old_action.getDescription());
+        toUpdate.setId(old_action.getId());
+        actionRepository.save(toUpdate);
+        return toUpdate;
+    }
+
 }

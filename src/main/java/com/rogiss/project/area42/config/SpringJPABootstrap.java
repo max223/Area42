@@ -40,6 +40,11 @@ public class SpringJPABootstrap implements ApplicationListener<ContextRefreshedE
         Reaction postPhotoOnFb = new Reaction("Post photo on facebook");
         reactionService.saveReaction(postEventOnTwitter);
         reactionService.saveReaction(postPhotoOnDrop);
+        reactionService.saveReaction(postPhotoOnFb);
+        actionService.saveAction(PostPhotoOnDropbox);
+        actionService.saveAction(PostPhotoFb);
+        actionService.saveAction(CreateFbEvent);
+        actionService.saveAction(AcceptInvitFb);
 
         List<Reaction> PostPhotoReaction = new ArrayList<>();
         PostPhotoReaction.add(postPhotoOnDrop);
@@ -53,10 +58,10 @@ public class SpringJPABootstrap implements ApplicationListener<ContextRefreshedE
         CreateFbEvent.setCompatibleReaction(PostEventReaction);
         AcceptInvitFb.setCompatibleReaction(PostEventReaction);
 
-        actionService.saveAction(PostPhotoOnDropbox);
-        actionService.saveAction(PostPhotoFb);
-        actionService.saveAction(CreateFbEvent);
-        actionService.saveAction(AcceptInvitFb);
+        actionService.updateAction(PostPhotoFb);
+        actionService.updateAction(PostPhotoOnDropbox);
+        actionService.updateAction(CreateFbEvent);
+        actionService.updateAction(AcceptInvitFb);
     }
 
 }

@@ -7,13 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Set;
 
 @Service
 public class ReactionServiceImpl implements ReactionService {
 
     @Autowired
     ReactionRepository reactionRepository;
+
     @Override
     public List<Reaction> findAll() {
         return reactionRepository.findAll();
@@ -35,8 +35,16 @@ public class ReactionServiceImpl implements ReactionService {
         reactionRepository.delete(id);
     }
 
+    @Override
+    public Reaction updateReaction(Reaction oldreaction) {
 
-
+        Reaction toUpdate = reactionRepository.findReactionById(oldreaction.getId());
+        toUpdate.setCompatibleActions(oldreaction.getCompatibleActions());
+        toUpdate.setDescription(oldreaction.getDescription());
+        toUpdate.setId(oldreaction.getId());
+        reactionRepository.save(toUpdate);
+        return toUpdate;
+    }
 
     @Override
     public List<Reaction> findReactionsByCompatibleActions(Action action) {

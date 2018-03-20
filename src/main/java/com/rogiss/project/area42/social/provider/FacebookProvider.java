@@ -55,7 +55,7 @@ public class FacebookProvider  {
         Facebook facebook = baseProvider.getFacebook();
         String [] fields = { "id", "email",  "first_name", "last_name", "picture", "events",    "photos"};
         User user = facebook.fetchObject("me", User.class, fields);
-        facebook.feedOperations().updateStatus("Test sdk");
+//        facebook.feedOperations().updateStatus("Test sdk");
         userForm.setUserIdFacebook(Long.valueOf(user.getId()).longValue());
         userForm.setEmail(user.getEmail());
         userForm.setFirstName(user.getFirstName());

@@ -1,6 +1,9 @@
 package com.rogiss.project.area42.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
@@ -8,18 +11,22 @@ import java.util.List;
 
 @Entity
 @Table(name = "action")
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id")
 public class Action {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NotNull
     @Column(unique = true)
     private String description;
 
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable
-    private List<Reaction> compatibleReaction = new ArrayList<>();;
+    private List<Reaction> compatibleReaction = new ArrayList<>();
 
     public Action() {
     }

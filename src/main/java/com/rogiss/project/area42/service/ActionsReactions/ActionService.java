@@ -16,5 +16,7 @@ public interface ActionService {
 
     void deleteAction(Long id);
 
+    Action updateAction(Action old_action);
+
 }
 

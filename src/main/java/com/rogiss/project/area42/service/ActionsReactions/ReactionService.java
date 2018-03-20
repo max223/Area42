@@ -5,7 +5,6 @@ import com.rogiss.project.area42.model.Reaction;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Set;
 
 @Service
 public interface ReactionService {
@@ -18,6 +17,7 @@ public interface ReactionService {
 
     void deleteReaction(Long id);
 
+    Reaction updateReaction(Reaction oldreaction);
 
 
     List<Reaction> findReactionsByCompatibleActions(Action action);
